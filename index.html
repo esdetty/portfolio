@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Erin S. Detty — Editorial Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;1,400&family=Avenir:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1a2744;
+    --navy-mid: #2c3e6b;
+    --rule: #c8cdd8;
+    --ink: #1c1c1e;
+    --secondary: #4a4f5c;
+    --muted: #7a8094;
+    --bg: #f7f6f3;
+    --surface: #ffffff;
+    --accent: #b8960c;
+    --header-bg: #798FA7;
+    --header-bg2: #3F5264;
+    --contact-bg: #5c7080;
+  }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Avenir', sans-serif;
+    font-weight: 500;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0;
+    background: #F0F2F5;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, var(--header-bg) 0%, var(--header-bg2) 100%);
+    padding: 3.5rem 3rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 0.6rem;
+  }
+
+  h1 {
+    font-family: 'Spectral', serif;
+    font-size: clamp(2rem, 4.5vw, 4rem);
+    font-weight: 400;
+    color: #ffffff;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .bio {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.75;
+    max-width: 520px;
+  }
+
+  .header-image-wrap {
+    flex-shrink: 0;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(255,255,255,0.35);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    background: rgba(255,255,255,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .header-image-wrap .img-placeholder {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 1rem;
+    line-height: 1.4;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--navy);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    transition: color 0.15s, background 0.15s;
+    white-space: nowrap;
+  }
+
+  nav ul li a:hover {
+    color: #ffffff;
+    background: rgba(255,255,255,0.08);
+  }
+
+  /* ── CONTENT WRAPPER ── */
+  .content {
+    padding: 0 2.5rem;
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  section:last-of-type { border-bottom: none; }
+
+  .section-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.75rem;
+  }
+
+  /* ── PHILOSOPHY ── */
+  #philosophy .philosophy-preview {
+    border-left: 2px solid var(--accent);
+    padding-left: 1.25rem;
+    padding-right: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: max-height 0.4s ease;
+  }
+
+  #philosophy .philosophy-preview p {
+    font-size: 1.05rem;
+    color: var(--secondary);
+    line-height: 1.5;
+  }
+
+  #philosophy .philosophy-more {
+    display: none;
+    margin-top: 1.1rem;
+    border-left: 2px solid var(--accent);
+    padding-left: 1.25rem;
+    Padding-right: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease;
+  }
+
+  #philosophy .philosophy-more.open {
+    max-height: 600px;
+  }
+
+  #philosophy .philosophy-more p {
+    font-size: 1.05rem;
+    color: var(--secondary);
+    line-height: 1.5;
+  }
+
+  #philosophy .philosophy-more p em {
+    font-style: italic;
+  }
+
+  .read-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--navy-mid);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    letter-spacing: 0.04em;
+    transition: color 0.15s;
+  }
+
+  .read-more-btn:hover { color: var(--accent); }
+
+  .read-more-btn .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    font-size: 0.7rem;
+  }
+
+  .read-more-btn.open .arrow { transform: rotate(180deg); }
+
+  /* ── WORK ITEMS ── */
+  .work-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .work-item {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--navy);
+    padding: 1.5rem 1.75rem;
+    transition: border-left-color 0.15s;
+  }
+
+  .work-item:hover { border-left-color: var(--accent); }
+
+  .work-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .work-type {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .work-date {
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  .work-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1.3;
+    margin-bottom: 0.2rem;
+  }
+
+  .work-publisher {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+    font-style: italic;
+  }
+
+  .work-body {
+    font-size: 0.9rem;
+    color: var(--secondary);
+    line-height: 1.75;
+  }
+
+  .work-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.85rem;
+  }
+
+  .work-role {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--navy-mid);
+    background: #eef0f6;
+    padding: 0.22rem 0.7rem;
+    border-radius: 2px;
+    letter-spacing: 0.04em;
+  }
+
+  .work-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--navy);
+    text-decoration: none;
+    border-bottom: 1px solid var(--navy);
+    padding-bottom: 1px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .work-link:hover { color: var(--accent); border-color: var(--accent); }
+
+  .work-link svg { width: 10px; height: 10px; flex-shrink: 0; }
+
+  /* ── ADDITIONAL WORK ── */
+  .note-item {
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--muted);
+    padding: 1.5rem 1.75rem;
+  }
+
+  .note-item .work-title { font-size: 1.1rem; }
+  .note-item .work-body { font-size: 0.88rem; margin-top: 0.5rem; }
+
+  /* ── TESTIMONIALS CAROUSEL ── */
+  .carousel {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .testimonial {
+    min-width: 100%;
+    padding: 2rem 2.25rem;
+    background: var(—muted);
+    border-top: 3px solid var(--navy);
+  }
+
+  .testimonial-quote {
+    font-size: 1.1rem;
+    font-style: none;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 1.25rem;
+  }
+
+  .testimonial-quote::before { content: '\201C'; }
+  .testimonial-quote::after  { content: '\201D'; }
+
+  .testimonial.placeholder .testimonial-quote::before,
+  .testimonial.placeholder .testimonial-quote::after { content: ''; }
+
+  .testimonial-attribution strong {
+    display: block;
+    text-align: right;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .testimonial-attribution span {
+    display: block;
+    padding-top: -3px;
+    text-align: right;
+    font-size: 0.9rem;
+    color: var(--ink);
+  }
+
+  .carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+  }
+
+  .carousel-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--rule);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s;
+  }
+
+  .carousel-dot.active { background: var(--navy); }
+
+  .carousel-btn {
+    background: none;
+    border: 1px solid var(--rule);
+    color: var(--secondary);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .carousel-btn:hover { border-color: var(--navy); color: var(--navy); }
+
+  /* ── CONTACT ── */
+  #contact-block {
+    background: var(--navy);
+    padding: 1rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  #contact-block .section-label {
+    text-align: center;
+    color: rgba(255,255,255,0.7);
+    font-size: 1.1em;
+    margin-top: 0.2rem;
+    margin-bottom: 1rem;
+  }
+
+  #contact-block p {
+    text-align: center;
+    font-size: 1rem;
+    color: rgba(255,255,255,1);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  #contact-block a {
+    color: #ffffff;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.7);
+    transition: border-color 0.15s;
+  }
+
+  #contact-block a:hover { border-color: #ffffff; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 580px) {
+    header { padding: 2.5rem 1.5rem; }
+    .header-inner { flex-direction: column-reverse; align-items: flex-start; gap: 1.5rem; }
+    .header-image-wrap { width: 100px; height: 100px; align-self: center; }
+    .content { padding: 0 1.25rem; }
+    nav ul li a { padding: 0.75rem 0.6rem; font-size: 0.62rem; }
+    #contact-block { padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="header-text">
+        <p class="eyebrow">Editorial Portfolio</p>
+        <h1>Erin S. Detty</h1>
+        <p class="bio">Erin Detty is a senior editor with more than eight years of experience working across both the public and private sectors, including in healthcare, housing, financial regulation, and scientific research. Throughout her work is a belief that good editing requires genuine understanding—not just of the words used to compose a piece, but of the message, the audience, and what the piece is actually trying to accomplish.</p>
+      </div>
+      <div class="header-image-wrap">
+        <img src="https://cdn.discordapp.com/attachments/889592844241739800/1520557579246243971/image0.jpg?ex=6a41a119&is=6a404f99&hm=f3a0f94eebb938931a150c13ad007acdd7d0d10c72ce5c1c6dea703588fb2cb3&" alt="Erin S. Detty" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+      </div>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav>
+    <ul>
+      <li><a href="#philosophy">Philosophy</a></li>
+      <li><a href="#work">Selected Work</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#additional">Additional Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+
+    <!-- PHILOSOPHY -->
+    <section id="philosophy">
+      <p class="section-label">Editorial Philosophy</p>
+
+      <div class="philosophy-preview">
+        <p>Impactful editing begins with comprehension. To improve a piece of writing, an editor must first understand it—we must be able to trace the piece's argument from premise to conclusion, following the steps of logic and incorporating evidence. This standard holds true regardless of if we work through a financial analysis, a regulatory submission, or an investor letter: If the reasoning does not gel with us, neither will it gel with a reader. My job as an editor is to ensure that the complexity of your project is presented with the clarity and precision it needs.</p>
+
+        <p>I believe editing is a collaborative act between authors and subject matter experts, who have deep expertise in what they are trying to express, and editors with the expertise in how to communicate it. These two things complement one another. If I'm having trouble with a particular passage, I lead by asking questions. <em>To me, this is saying X. Is this understanding correct?</em> or <em>Earlier we established Y, and now we're saying Z—are these two things contradictory, or am I missing the connection?</em> This approach keeps the author's knowledge at the center of the work while addressing genuine opportunities for misunderstanding before they become problems on the page.</p>
+
+      </div>
+
+      <div class="philosophy-more" id="phil-more">
+        <p>Editorial decisions don't begin at the editing phase, but at the moment a piece of work is conceived. Choosing the right modality for the desired message, understanding the target audience, and outlining the development process are critical decisions that affect the time spent editing later. Well-designed workflows and editorial tools (e.g., templates, style guides) create a strong foundation for authors to build from and build organizational capacity. This ensures that quality becomes a shared standard throughout the organization rather than a limitation to be suffered later. I find creating these tools to be just as satisfying as the editing process; a well-designed modality for visual presentation complements the quality of the piece itself.</p>
+      </div>
+
+      <button class="read-more-btn" id="phil-btn" onclick="togglePhilosophy()">
+        Read more <span class="arrow">▾</span>
+      </button>
+    </section>
+
+    <!-- SELECTED WORK -->
+    <section id="work">
+      <p class="section-label">Selected Work</p>
+      <div class="work-grid">
+
+        <!-- 1. Biofabrication -->
+        <div class="work-item">
+          <div class="work-meta">
+            <span class="work-type">Peer-reviewed article</span>
+            <span class="work-date">2017</span>
+          </div>
+          <h2 class="work-title">Validation of Scaffold Design Optimization in Bone Tissue Engineering: Finite Element Modeling versus Designed Experiments</h2>
+          <p class="work-publisher"><em>Biofabrication</em> — Vol. 9, No. 1</p>
+          <p class="work-body">A quantitative research article examining computational and experimental methods for optimizing scaffold architecture in bone tissue engineering. Editing this piece required a deep understanding of the complexities of the emerging 3D bioprinting field (a domain far outside my own background) while ensuring that facts, rationales, and conclusions were clear and well-supported at the level expected of peer-reviewed scientific publications.</p>
+          <div class="work-footer">
+            <span class="work-role">Full edit — author confirmation</span>
+            <a class="work-link" href="https://doi.org/10.1088/1758-5090/9/1/015023" target="_blank" rel="noopener">View publication
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. Brookings -->
+        <div class="work-item">
+          <div class="work-meta">
+            <span class="work-type">Research report</span>
+            <span class="work-date">January 2021</span>
+          </div>
+          <h2 class="work-title">How We Rise: How Social Networks Impact Economic Mobility in Racine, WI, San Francisco, CA, and Washington, DC</h2>
+          <p class="work-publisher">The Brookings Institution</p>
+          <p class="work-body">A comparative research report examining how the composition of social networks shapes economic outcomes across three American cities. The document synthesized quantitative analysis, sociological research, and policy argument across multiple authors and disciplines. This report spanned the full range of editorial contributions, from structural editing to copyediting to formatting and layout.</p>
+          <div class="work-footer">
+            <span class="work-role">Full edit — acknowledged as part of the How We Rise team</span>
+            <a class="work-link" href="https://www.brookings.edu/wp-content/uploads/2021/01/rpi_20210112_howwerise_racine_sanfran_dc_fullreport.pdf" target="_blank" rel="noopener">View publication
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. Recruitment -->
+        <div class="work-item">
+          <div class="work-meta">
+            <span class="work-type">White paper</span>
+            <span class="work-date">March 2020</span>
+          </div>
+          <h2 class="work-title">Recruitment for Qualitative Research</h2>
+          <p class="work-publisher">Econometrica, Inc.</p>
+          <p class="work-body">A methodological white paper on best practices for participant recruitment in qualitative research contexts.</p>
+          <div class="work-footer">
+            <span class="work-role">Full edit — credited as editor</span>
+            <a class="work-link" href="https://econometricainc.com/wp-content/uploads/2020/03/Recruitment-for-Qualitative-Research_March2020.pdf" target="_blank" rel="noopener">View document
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. Health Equity -->
+        <div class="work-item">
+          <div class="work-meta">
+            <span class="work-type">White paper</span>
+            <span class="work-date">October 2020</span>
+          </div>
+          <h2 class="work-title">Health Equity for Disabled Children: What Can Be Done?</h2>
+          <p class="work-publisher">Econometrica, Inc.</p>
+          <p class="work-body">A policy-oriented white paper examining systemic barriers to health equity for disabled children and outlining actionable interventions.</p>
+          <div class="work-footer">
+            <span class="work-role">Full edit — credited as editor</span>
+            <a class="work-link" href="https://econometricainc.com/wp-content/uploads/2023/05/Health_Equity_White_Paper_Oct2020_508-1.pdf" target="_blank" rel="noopener">View document
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 5. E-Learning -->
+        <div class="work-item">
+          <div class="work-meta">
+            <span class="work-type">White paper</span>
+            <span class="work-date">October 2020</span>
+          </div>
+          <h2 class="work-title">Econometrica Pivots E-Learning to an Improved Platform</h2>
+          <p class="work-publisher">Econometrica, Inc.</p>
+          <p class="work-body">A white paper documenting the rationale and process behind a significant organizational transition in e-learning delivery. This work entailed giving a document that began as internal operational communication the structure and voice of a polished external publication that conveyed strategic clarity and institutional confidence to outside audiences.</p>
+          <div class="work-footer">
+            <span class="work-role">Full edit — credited as editor</span>
+            <a class="work-link" href="https://econometricainc.com/wp-content/uploads/2023/05/eLearning_White-Paper_Oct2020.pdf" target="_blank" rel="noopener">View document
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+      <p class="section-label">From Others</p>
+      <div class="carousel">
+        <div class="carousel-track" id="carousel-track">
+
+          <div class="testimonial">
+            <p class="testimonial-quote">I have gone to Erin for editing services over the past 12 years whenever I have an important publication that needs to shine. She has a fine eye for detail and impressive ability to handle editing for highly technical and dense materials; whether it's intended for a technical audience or an executive audience, she has a golden touch.</p>
+            <div class="testimonial-attribution">
+              <strong>— Nicholas Uth</strong>
+              <span>Lead Process Development Engineer, Mayo Clinic Center for Regenerative Biotherapeutics</span>
+            </div>
+          </div>
+
+          <div class="testimonial">
+            <p class="testimonial-quote">Erin has worked for me as a developmental editor for years. She has an amazing eye for detail and is able to see the vision of the story past simple line edits. If you want someone who can both unsnarl an overambitious monstrosity of a sentence as well as help you pull an actual narrative out of a first draft, I cannot recommend her enough.</p>
+            <div class="testimonial-attribution">
+              <strong>Jessica Chou</strong>
+              <span>Author, <em>The Pyrrhic Prophecy</em></span>
+            </div>
+          </div>
+
+          <div class="testimonial">
+            <p class="testimonial-quote">Testimonial placeholder — replace with quote text.</p>
+            <div class="testimonial-attribution">
+              <strong>[Name]</strong>
+              <span>[Title], [Organization]</span>
+            </div>
+          </div>
+
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" onclick="carouselMove(-1)" aria-label="Previous">&#8592;</button>
+          <button class="carousel-dot active" onclick="carouselGo(0)"></button>
+          <button class="carousel-dot" onclick="carouselGo(1)"></button>
+          <button class="carousel-dot" onclick="carouselGo(2)"></button>
+          <button class="carousel-btn" onclick="carouselMove(1)" aria-label="Next">&#8594;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADDITIONAL WORK -->
+    <section id="additional">
+      <p class="section-label">Additional Work</p>
+      <div class="note-item">
+        <div class="work-meta">
+          <span class="work-type">Federal toolkit</span>
+          <span class="work-date">2023</span>
+        </div>
+        <h2 class="work-title">Shrinking the Digital Divide</h2>
+        <p class="work-publisher">U.S. Department of Housing and Urban Development (HUD Exchange)</p>
+        <p class="work-body">A federal toolkit developed to help bring high-speed internet access to low-income and rural communities. Authored the first draft of this toolkit and performed editing for every subsequent draft through publication, including through graphic design/layout. This document is no longer publicly hosted on HUD Exchange due to DEI review.</p>
+      </div>
+    </section>
+
+  </div><!-- /content -->
+
+  <!-- CONTACT -->
+  <div id="contact-block" id="contact">
+    <p class="section-label">Contact</p>
+    <p>Erin Detty &nbsp;·&nbsp; <a href="mailto:e.s.detty@gmail.com">E.S.Detty@gmail.com</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/erin-detty">LinkedIn</a></p>
+  </div>
+
+</div><!-- /page -->
+
+<script>
+  // ── PHILOSOPHY TOGGLE ──
+  function togglePhilosophy() {
+    const more = document.getElementById('phil-more');
+    const btn  = document.getElementById('phil-btn');
+    const isOpen = more.classList.contains('open');
+    more.classList.toggle('open');
+    btn.classList.toggle('open');
+    btn.innerHTML = isOpen
+      ? 'Read more <span class="arrow">▾</span>'
+      : 'Read less <span class="arrow">▾</span>';
+  }
+
+  // ── CAROUSEL ──
+  let current = 0;
+  const total = 3;
+  let autoTimer;
+
+  function carouselGo(index) {
+    current = index;
+    document.getElementById('carousel-track').style.transform = `translateX(-${current * 100}%)`;
+    document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+    resetTimer();
+  }
+
+  function carouselMove(dir) {
+    carouselGo((current + dir + total) % total);
+  }
+
+  function resetTimer() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => carouselMove(1), 7500);
+  }
+
+  resetTimer();
+</script>
+</body>
+</html>
